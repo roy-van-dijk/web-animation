@@ -44,7 +44,7 @@ html, body {
     background-color: var(--white);
     cursor: grab;
     border: 4px solid var(--black);
-    /* clip-path: polygon(0% 0%, 100% 0%, 0% 100%); */
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
     transition: border-radius 1s, border 0.2s, clip-path 1s;
 }
 .mondriaan.rounded .item{
