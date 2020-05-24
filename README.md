@@ -8,7 +8,7 @@ This is what a classic Mondriaan looks like:
 ![Mondriaan](https://upload.wikimedia.org/wikipedia/commons/7/76/Piet_Mondriaan%2C_1921_-_Composition_en_rouge%2C_jaune%2C_bleu_et_noir.jpg)
 
 ## Motivation
-The reason I chose Mondriaan is because I became very familiar with his work after my school moved into a building inspired by his art. I also feel like most Mondriaan paintings look rather similar and was curious what would happen to the style if the shapes were to change.
+The reason I chose Mondriaan is because I became very familiar with his work after my school (University of Applied Sciences Leiden) moved into a building inspired by his art. I also feel like most Mondriaan paintings look rather similar and I was curious as to what would happen if the shapes were to change.
 
 The building the school moved into is called Le Carrefour and is located in Leiden:
 ![Le Carrefour](https://senl.nl/wp-content/uploads/2017/05/achmea-2.jpeg)
