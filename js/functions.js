@@ -30,9 +30,9 @@ function onCubeButtonPressed() {
         currentZ = 0;
         cubeButton.classList.remove('active');
     } else {
-        rootStyle.setProperty('--scene-size', '500px');
-        rootStyle.setProperty('--column', '100px');
-        rootStyle.setProperty('--row', '100px');
+        rootStyle.setProperty('--scene-size', '512px');
+        rootStyle.setProperty('--column', '64px');
+        rootStyle.setProperty('--row', '64px');
         container.classList.remove('fullscreen');
         cubeButton.classList.add('active');
     }
@@ -49,7 +49,11 @@ function incrementTransform(direction) {
         case 'up':
             if(currentY % 180 === 0 || currentX % 180 !== 0) {
                 currentX += 90;
-            } else {
+            } 
+            else if (currentY % 180 !== 0 && currentX % 180 === 0) {
+                currentZ += 90;
+            }
+            else {
                 currentZ -= 90;
             }
             break;
@@ -70,6 +74,10 @@ function incrementTransform(direction) {
     }
 }
 
+// x: 1800
+// y: 450
+// z: -3330
+
 function transformCube(direction) {
     if(!container.classList.contains('fullscreen')) {
         incrementTransform(direction);
@@ -81,7 +89,7 @@ function transformCube(direction) {
 function startTouch(e) {
     initialX = e.touches[0].clientX;
     initialY = e.touches[0].clientY;
-};
+}
 
 function moveTouch(e) {
     if (initialX === null || initialY === null) {
@@ -112,4 +120,8 @@ function moveTouch(e) {
     initialY = null;
 
     e.preventDefault();
-};
+}
+
+function recolorSquare() {
+    this.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+}

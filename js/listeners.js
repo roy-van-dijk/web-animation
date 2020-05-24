@@ -19,3 +19,5 @@ pckry.getItemElements().forEach( function( itemElem ) {
     var draggie = new Draggabilly( itemElem );
     pckry.bindDraggabillyEvents( draggie );
 });
+
+mondriaanSquares.forEach(square => square.addEventListener('click', recolorSquare));

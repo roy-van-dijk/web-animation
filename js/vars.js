@@ -5,9 +5,22 @@ const keys = {
     40: 'down'
 };
 
+const colors = [
+    '#0f2a77',
+    '#e51837',
+    '#fdeb24',
+    '#12060f',
+    '#f5f5f5',
+    '#f5f5f5',
+    '#f5f5f5',
+    '#f5f5f5',
+    '#f5f5f5'
+];
+
 let pressedKeys = {};
 
 let mondriaan = document.querySelector('.mondriaan');
+let mondriaanSquares = document.querySelectorAll('.mondriaan .item');
 
 let up = document.querySelector('.move-up');
 let down = document.querySelector('.move-down');
