@@ -4,10 +4,10 @@
     grid-auto-rows: var(--column);
     grid-auto-flow: dense;
 
-    --color1: purple;
-    --color2: pink;
-    --color3: green;
-    --color4: lightblue;
+    --color1: #0f2a77;
+    --color2: #e51837;
+    --color3: #fdeb24;
+    --color4: #12060f;
 }
 .mondriaan.alt .item:nth-child(3) {
     grid-column: span 2;

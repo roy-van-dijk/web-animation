@@ -246,6 +246,10 @@ html, body {
     opacity: 1;
 }
 
+.fullscreen .cube > *:not(.front) {
+    display: none;
+}
+
 .cube > * {
     position: absolute;
     width: var(--scene-size);
@@ -256,12 +260,12 @@ html, body {
 }
 
 /* CSS cube tutorial from https://3dtransforms.desandro.com/cube */
-.cube .front  { transform: rotateY(  0deg) translateZ(calc(var(--scene-size) / 2)); background-color: white; }
-.cube .right  { transform: rotateY( 90deg) translateZ(calc(var(--scene-size) / 2)); background-color: blue; }
-.cube .back   { transform: rotateY(180deg) translateZ(calc(var(--scene-size) / 2)); background-color: goldenrod; }
-.cube .left   { transform: rotateY(-90deg) translateZ(calc(var(--scene-size) / 2)); background-color: red; }
-.cube .top    { transform: rotateX( 90deg) translateZ(calc(var(--scene-size) / 2)); background-color: green; }
-.cube .bottom { transform: rotateX(-90deg) translateZ(calc(var(--scene-size) / 2)); background-color: hotpink; }
+.cube .front  { transform: rotateY(  0deg) translateZ(calc(var(--scene-size) / 2)); }
+.cube .right  { transform: rotateY( 90deg) translateZ(calc(var(--scene-size) / 2)); }
+.cube .back   { transform: rotateY(180deg) translateZ(calc(var(--scene-size) / 2)); }
+.cube .left   { transform: rotateY(-90deg) translateZ(calc(var(--scene-size) / 2)); }
+.cube .top    { transform: rotateX( 90deg) translateZ(calc(var(--scene-size) / 2)); }
+.cube .bottom { transform: rotateX(-90deg) translateZ(calc(var(--scene-size) / 2)); }
 
 @media(max-width: 900px) {
     :root {
