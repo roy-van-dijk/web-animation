@@ -78,6 +78,66 @@ rootStyle.setProperty('--scene-size', '100vw');
 
 However, this messes up the Packery dragging library which is using absolute positioning. By running `Packery.layout()`, Packery will recalculate all the positions to re-initialize the dragging function.
 
+For rotation the 3D cube guide was not helpful. The way they do it is to have 6 buttons, each corresponding to a side of the cube (front, back, top, etc.). This is a very simple solution but not fun and it doesn't take advantage of touch screens. 
 
+I decided to implement my own rotation functions. The cube can be rotated on 3 axis using 
+```css
+transform: rotateX();
+transform: rotateY();
+transform: rotateZ();
+```
+For clarity I decided not to use the shorter `transform: rotate3d()` property, as 3d transformations can become quite complex.
 
+This JavaScript function rotates the cube on all axis:
+```javascript
+function transformCube(direction) {
+    incrementTransform(direction);
+    cube.style.transform = 'translateZ(-250px) rotateX(' + currentX + 'deg) rotateY(' + currentY + 'deg) rotateZ(' + currentZ + 'deg)';
+}
+```
 
+The current X, Y and Z values are stored in the JavaScript `currentX`, `currentY` and `currentZ` variables respectively. The value of these variables is set in the `incrementTransform` function, which takes a parameter stating the direction the cube should rotate in:
+
+```javascript
+function incrementTransform(direction) {
+    switch(direction) {
+        case 'up':
+            currentZ -= 90;
+            break;
+        case 'right':
+            currentY += 90;
+            break;
+        case 'left':
+            currentY -= 90;
+            break;
+        case 'down':
+            currentX -= 90;
+            break;
+    }
+}
+```
+
+The rotation function can also be easily called upon by event listeners, such as this one for the 'down' arrow present on the page:
+
+```javascript
+down.addEventListener('click', () => transformCube(this.dataset.direction));
+```
+
+The down arrow has a `data` attribute in the HTML which is where it gets the direction from:
+```html
+<div class="move-down" data-direction="down"></div>
+```
+
+The rotation can also be bound to the keyboard and swipe actions on mobile using the same method.
+
+## Result
+Fullscreen Mondriaan:
+![Mondriaan](https://github.com/roy-van-dijk/web-animation/blob/master/assets/fullart.png)
+
+3D Mondriaan:
+![Mondriaan](https://github.com/roy-van-dijk/web-animation/blob/master/assets/3dcube.png)
+
+Multiple functions combined:
+![Mondriaan](https://github.com/roy-van-dijk/web-animation/blob/master/assets/3dcubecircles.png)
+
+<h1 align="center"><a href="https://roy-van-dijk.github.io/web-animation/">Check it out for yourself!</a></h1>
