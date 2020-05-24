@@ -14,7 +14,7 @@ The building the school moved into is called Le Carrefour and is located in Leid
 ![Le Carrefour](https://senl.nl/wp-content/uploads/2017/05/achmea-2.jpeg)
 
 ## Base artwork
-For the base artwork I began looking on the internet work ways to create a Mondriaan in CSS. I found a very good [video](https://www.youtube.com/watch?v=qNtJ5p3h2A4) by the YouTube channel Layout land about this. In the video a responsive Mondriaan is created using CSS grid with very little CSS. It doesn't even use media queries!
+For the base artwork I began looking on the internet work ways to create a Mondriaan in CSS. I found a very good [video](https://www.youtube.com/watch?v=qNtJ5p3h2A4) by the YouTube channel Layout Land about this. In the video a responsive Mondriaan is created using CSS grid with very little CSS. It doesn't even use media queries!
 
 ## 4 functions
 ### Dragging
@@ -26,6 +26,8 @@ Problems soon arose when I found out that Packery uses absolute positioning on i
 
 ### Circles
 Not the most impressive function of the artwork from a technical standpoint, but this function essentially adds a `border-radius` to all Mondriaan squares, creating Mondriaan circles which look interesting, especially when combined with the fourth function.
+
+![Mondriaan Circles](https://github.com/roy-van-dijk/web-animation/blob/master/assets/fullartcircle.png)
 
 ### Triangles
 Clip-path is a CSS property I havent really touched before. To challenge myself I wanted to include clip-path in this assignment somehow. I've decided to do that by making the Mondriaan squares into triangles. This required more brainpower than I expected, as a triangle path has three points and as such can never become a square again. It is also not possible to animate a 4-point polygon into a 3-point polygon, which makes sense.
@@ -45,14 +47,16 @@ clip-path: polygon(
 Triangle:
 ```css
 clip-path: polygon(
-    50% 0%,     /* top left */
+    50% 0%,    /* top left */
     0% 100%,   /* top right */
     100% 100%, /* bottom right */
-    100% 100%    /* bottom left */
+    100% 100%  /* bottom left */
 );
 ```
 
 Using `transition: clip-path 1s`, this clip-path animates beautifully.
+
+![Mondriaan Triangles](https://github.com/roy-van-dijk/web-animation/blob/master/assets/fullarttriangle.png)
 
 ### 3D Cube
 Now for the main event, the creation of a 3D Mondriaan cube.
@@ -80,7 +84,7 @@ However, this messes up the Packery dragging library which is using absolute pos
 
 For rotation the 3D cube guide was not helpful. The way they do it is to have 6 buttons, each corresponding to a side of the cube (front, back, top, etc.). This is a very simple solution but not fun and it doesn't take advantage of touch screens. 
 
-I decided to implement my own rotation functions. The cube can be rotated on 3 axis using 
+I decided to implement my own rotation functions. The cube can be rotated on 3 axis using CSS transforms:
 ```css
 transform: rotateX();
 transform: rotateY();
@@ -96,13 +100,13 @@ function transformCube(direction) {
 }
 ```
 
-The current X, Y and Z values are stored in the JavaScript `currentX`, `currentY` and `currentZ` variables respectively. The value of these variables is set in the `incrementTransform` function, which takes a parameter stating the direction the cube should rotate in:
+The current X, Y and Z values are stored in the JavaScript `currentX`, `currentY` and `currentZ` variables respectively. The value of these variables is set in the `incrementTransform` function, which takes a parameter stating the direction the cube should rotate in (Z-rotation left out for clarity):
 
 ```javascript
 function incrementTransform(direction) {
     switch(direction) {
         case 'up':
-            currentZ -= 90;
+            currentX -= 90;
             break;
         case 'right':
             currentY += 90;
