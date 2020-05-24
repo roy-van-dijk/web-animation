@@ -8,12 +8,12 @@ function onKeyPressed() {
 
 function onCircleButtonPressed() {
     circleButton.classList.toggle('active');
-    mondriaan.classList.toggle('rounded');
+    mondriaans.forEach(mondriaan => mondriaan.classList.toggle('rounded'));
 }
 
 function onTriangleButtonPressed() {
     triangleButton.classList.toggle('active');
-    mondriaan.classList.toggle('triangle')
+    mondriaans.forEach(mondriaan => mondriaan.classList.toggle('triangle'));
 }
 
 function onCubeButtonPressed() {
@@ -74,10 +74,6 @@ function incrementTransform(direction) {
     }
 }
 
-// x: 1800
-// y: 450
-// z: -3330
-
 function transformCube(direction) {
     if(!container.classList.contains('fullscreen')) {
         incrementTransform(direction);
@@ -85,15 +81,16 @@ function transformCube(direction) {
     }
 }
 
-
 function startTouch(e) {
     initialX = e.touches[0].clientX;
     initialY = e.touches[0].clientY;
 }
 
+// Swipe gesture detection from Stack Overflow:
+// https://stackoverflow.com/questions/53192433/how-to-detect-swipe-in-javascript
 function moveTouch(e) {
     if (initialX === null || initialY === null) {
-      return;
+        return;
     }
 
     let currentX = e.touches[0].clientX;

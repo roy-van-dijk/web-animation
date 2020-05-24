@@ -19,7 +19,7 @@ const colors = [
 
 let pressedKeys = {};
 
-let mondriaan = document.querySelector('.mondriaan');
+let mondriaans = document.querySelectorAll('.mondriaan');
 let mondriaanSquares = document.querySelectorAll('.mondriaan .item');
 
 let up = document.querySelector('.move-up');
@@ -41,8 +41,10 @@ let circleButton = document.getElementById('do-circle');
 let triangleButton = document.getElementById('do-triangle');
 let cubeButton = document.getElementById('do-cube');
 
-let swipeContainer = document.querySelector("body:not(.scene)");
+let swipeContainer = document.querySelector('body');
 
+//Packery plugin for draggable elements applied to the mondriaan
+//https://packery.metafizzy.co/
 let pckry = new Packery( '.mondriaan', {
     itemSelector: '.item',
     percentPosition: true

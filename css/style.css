@@ -1,3 +1,5 @@
+@import url('mondriaan-alts.css');
+
 :root {
     --blue: #0f2a77;
     --red: #e51837;
@@ -38,7 +40,7 @@ html, body {
 .controls svg {
     width: 100%;
     height: 100%;
-    transition: fill 0.3s;
+    transition: fill 0.3s linear;
 }
 
 .controls button {
@@ -113,6 +115,8 @@ html, body {
     cursor: grab;
     border: 2px solid var(--black);
     transition: border-radius 0.7s, border 0.2s, clip-path 1s, background-color 0.5s;
+
+    /* Clip path maker from https://bennettfeely.com/clippy/ */
     clip-path: polygon(
         0% 0%, 
         100% 0%, 
@@ -251,6 +255,7 @@ html, body {
     transition: opacity 0.3s;
 }
 
+/* CSS cube tutorial from https://3dtransforms.desandro.com/cube */
 .cube .front  { transform: rotateY(  0deg) translateZ(calc(var(--scene-size) / 2)); background-color: white; }
 .cube .right  { transform: rotateY( 90deg) translateZ(calc(var(--scene-size) / 2)); background-color: blue; }
 .cube .back   { transform: rotateY(180deg) translateZ(calc(var(--scene-size) / 2)); background-color: goldenrod; }
@@ -282,7 +287,7 @@ html, body {
     .container > *:not(.center) {
         display: none;
     }
-    
+
     .center {
         margin-bottom: 150px;
     }
