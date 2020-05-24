@@ -71,8 +71,10 @@ function incrementTransform(direction) {
 }
 
 function transformCube(direction) {
-    incrementTransform(direction);
-    cube.style.transform = 'translateZ(-250px) rotateX(' + currentX + 'deg) rotateY(' + currentY + 'deg) rotateZ(' + currentZ + 'deg)';
+    if(!container.classList.contains('fullscreen')) {
+        incrementTransform(direction);
+        cube.style.transform = 'translateZ(-250px) rotateX(' + currentX + 'deg) rotateY(' + currentY + 'deg) rotateZ(' + currentZ + 'deg)';
+    }
 }
 
 
