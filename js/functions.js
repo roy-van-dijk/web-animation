@@ -1,3 +1,4 @@
+let pitch = 0; yaw = 0; roll = 0;
 
 function onKeyPressed() {
     for(let key in pressedKeys) {
@@ -45,31 +46,37 @@ function directionClicked() {
 }
 
 function incrementTransform(direction) {
-    switch(direction) {
+    switch (direction) {
         case 'up':
-            if(currentY % 180 === 0 || currentX % 180 !== 0) {
-                currentX += 90;
-            } 
-            else if (currentY % 180 !== 0 && currentX % 180 === 0) {
-                currentZ += 90;
-            }
-            else {
-                currentZ -= 90;
+            if (yaw % 180 === 0) {
+                pitch += 90;
+            } else {
+                roll += 90;
             }
             break;
+
         case 'right':
-            if(currentX % 180 !== 0) {
-                currentZ += 90;
-            } 
-            else {
-                currentY += 90;
+            if (pitch % 180 === 0) {
+                yaw += 90;
+            } else {
+                roll -= 90;
             }
             break;
+
         case 'left':
-            currentY -= 90;
+            if (pitch % 180 === 0) {
+                yaw -= 90;
+            } else {
+                roll += 90;
+            }
             break;
+
         case 'down':
-            currentX -= 90;
+            if (yaw % 180 === 0) {
+                pitch -= 90;
+            } else {
+                roll -= 90;
+            }
             break;
     }
 }
@@ -77,7 +84,12 @@ function incrementTransform(direction) {
 function transformCube(direction) {
     if(!container.classList.contains('fullscreen')) {
         incrementTransform(direction);
-        cube.style.transform = 'translateZ(-250px) rotateX(' + currentX + 'deg) rotateY(' + currentY + 'deg) rotateZ(' + currentZ + 'deg)';
+
+        let x = pitch;
+        let y = yaw;
+        let z = roll;
+
+        cube.style.transform = 'translateZ(-250px) rotateX(' + x + 'deg) rotateY(' + y + 'deg) rotateZ(' + z + 'deg)';
     }
 }
 
